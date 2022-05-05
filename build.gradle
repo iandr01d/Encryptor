@@ -19,6 +19,8 @@ ext {
     fragmentVersion = '1.4.1'
     gsonVersion = '2.9.0'
     hiltVersion = '2.41'
+    mockitoCoreVersion = '4.5.1'
+    mockitoInlineVersion = '2.13.0'
     roomVersion = '2.4.2'
 }
 
