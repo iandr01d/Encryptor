@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Encryptor</string>
+    <string name="btn_populate">Populate</string>
+    <string name="btn_sort">Sort</string>
+    <string name="btn_clear">Clear</string>
+    <string name="toast_message">%1$s is clicked</string>
 </resources>
