@@ -1,6 +1,7 @@
 package app.ian.encryptor.ui.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +15,7 @@ import app.ian.encryptor.util.FileUtil
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -59,6 +61,19 @@ class DemoActivity : AppCompatActivity() {
             this.clearButton.setOnClickListener {
                 lifecycleScope.launch {
                     viewModel.deleteAllCurrencies()
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            lifecycleScope.launchWhenStarted {
+                viewModel.itemClicked.collect {
+                    Toast.makeText(
+                        this@DemoActivity,
+                        getString(R.string.toast_message, it.symbol),
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                 }
             }
         }
